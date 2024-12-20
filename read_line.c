@@ -1,18 +1,27 @@
 #include "main.h"
 
-// Fonction pour lire une ligne depuis l'utilisateur
-char *read_line(const char *prompt) {
-    char *lineptr = NULL;
-    size_t length = 0;
+/**
+ * read_line - Reads a line from the user with a prompt
+ * @prompt: The prompt to display to prompt the user for a line
+ * Return: A pointer to the line read, or NULL on error
+ */
 
-    printf("%s", prompt);
-    ssize_t chars_read = getline(&lineptr, &length, stdin);
+/* Fonction pour lire une ligne depuis l'utilisateur*/
 
-    if (chars_read == -1) {
-        perror("Error reading line");
-        free(lineptr);
-        return NULL;
-    }
+char *read_line(const char *prompt)
+{
+	char *lineptr = NULL;
+	size_t length = 0;
 
-    return lineptr;
+	printf("%s", prompt);
+
+	ssize_t chars_read = getline(&lineptr, &length, stdin);
+
+	if (chars_read == -1)
+	{
+		perror("Error reading line");
+		free(lineptr);
+		return (NULL);
+	}
+	return (lineptr);
 }
