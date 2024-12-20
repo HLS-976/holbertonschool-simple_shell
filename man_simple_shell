@@ -1,0 +1,83 @@
+.TH PRINTF 3 "28 Novembre 2024" "1.0" "printf man page"
+.SH NAME
+.PP
+.B _printf Custom formatted output converson function
+
+.SH SYNOPSIS
+.nf
+.B ##include <stdio.h>
+.B ##include <stdarg.h>
+.TP
+.B int _printf(char *format, ...)
+.fi
+
+.SH DESCRIPTION
+.PP
+.B _printf is a custom implementation of the standard printf function.
+Print output according to format.
+
+Printf is a function that writes output to the stdout, which is the standard output stream.
+
+Also, the function writes the output according to the format string. This format string specifies how the following arguments are converted for output.
+
+.B Return value
+.B _printf
+On success the function returns the number of characters printed (excluding the null byte used to terminate the output into strings)
+
+if an output error occurs the function returns a negative value
+
+.B The conversion specifier
+
+A conversion specifier is a character that specifies the type of conversion to be used. It is used during input and output. It tells the compiler what type of data is in the varaible when printing using _printf. 
+
+.B The following conversion specifiers are supported:
+
+.TP 
+.B %c 
+	Print a single character. 
+.TP 
+.B %s 
+	Prints a null-terminated string of characters. 
+.TP 
+.B %% 
+	Print a percent sign. 
+.TP 
+.B %i, %d
+	Prints a signed integer in base 10.
+
+.SH EXAMPLES
+.PP
+.B The following example demonstrates how to use  \fB_printf()\fP:
+
+.nf
+#include <stdio.h>
+
+int main(void) 
+{
+        char name[] = "Brian";
+        int age = 25; 
+
+        _printf("Hello, my name is %s and I am %d years old, and I'm not always in the kitchen", name, age);
+
+        return 0;
+}
+
+.B This will Output:
+.PP
+.nf
+Hi, my name is Brian and I'm 25 years old, and I'm not always in the kitchen ;)
+
+.SH NOTES
+.PP
+This \fB_printf()\fP function is a simplified version of the standard C library printf() function. It lacks some error handling and does not support all the formatting capabilities of the standard printf() function, but it covers the basic usage for the mentioned specifiers.
+.PP
+Make sure to include the required header files \fI<stdio.h>\fP and \fI<stdarg.h>\fP when using \fB_printf()\fP.
+
+.SH AUTHOR
+.PP
+This \fB_printf()\fP function example and man page were created by [Myriam,Ahmed,David].
+
+.SH COPYRIGHT
+.PP
+No copyright. This is free and unencumbered software released into the public domain.
+
