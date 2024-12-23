@@ -6,7 +6,6 @@
  */
 
 /*Fonction principale*/
-
 int main(void)
 {
 	const char *prompt = "(shell)-$";
@@ -22,7 +21,6 @@ int main(void)
 		if (!lineptr)
 			break;
 		token_count = count_tokens(lineptr, delim);
-
 		if (token_count <= 0)
 		{
 			free(lineptr);
@@ -37,7 +35,6 @@ int main(void)
 			continue;
 		}
 		tokens = tokenize_line(line_copy, delim, token_count);
-
 		if (!tokens)
 		{
 			free(lineptr);
@@ -46,7 +43,6 @@ int main(void)
 		}
 		/*app la fonction execution*/
 		execution(tokens, token_count);
-
 		free(tokens);
 		free(line_copy);
 		free(lineptr);
