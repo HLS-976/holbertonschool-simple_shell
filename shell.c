@@ -31,6 +31,16 @@ int main(void) {
             continue;
         }
 
+	if (strcmp(tokens[0], "exit") == 0) 
+	{
+		free(tokens);
+		free(line_copy);
+		free(lineptr);
+		return (0);
+	}
+
+	execution(tokens, 10);
+
         free(tokens);
         free(line_copy);
         free(lineptr);
