@@ -1,0 +1,3 @@
+- Création de l'environnement
+- Réagencement du code
+- Readme - ajout du flowchart, des différentes commandes possibles, etc..
