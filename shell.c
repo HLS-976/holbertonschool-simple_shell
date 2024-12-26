@@ -41,6 +41,10 @@ int main(void)
 			free(line_copy);
 			continue;
 		}
+		if (child_exit(tokens, line_copy, lineptr) == 0)
+		{
+			return (0);
+		}
 		/*app la fonction execution*/
 		execution(tokens, token_count);
 		free(tokens);
