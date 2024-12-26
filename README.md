@@ -2,36 +2,30 @@
 
 ![logo](https://i.imgur.com/02Avpeu.png)
 
-
 ## Synopsis ✏️
 
-Un shell est un programme qui agit comme une interface entre l'utilisateur et le système d'exploitation.
+A shell is a program that acts as an interface between the user and the operating system.
 
 ## Description 
 
-Un shell permet à l'utilisateur d'interagir avec le système d'exploitation en acceptant les commandes saisies par l'utilisateur à partir du clavier, en vérifiant si les entrées de l'utilisateur sont correctes et en les exécutant.
+A shell allows the user to interact with the operating system by accepting commands entered by the user from the keyboard, checking whether the user's input is correct, and executing it.
 
 ## Introduction
 
-Ce projet de simple shell a été réalisé dans le cadre d'une formation pour créer un interpréteur de commandes qui imite le fonctionnement d'un shell Unix. Le shell permet d'exécuter des commandes saisies par l'utilisateur, de gérer les processus et d'interagir avec le système d'exploitation.
+This simple shell project was made as part of a training to create a command interpreter that mimics the operation of a Unix shell. The shell allows you to execute commands entered by the user, manage processes and interact with the operating system.
 
 ## Exigences
 
-. Compiled on Ubuntu 24.04.1 LTS
-
-. Programs and functions will be compiled with gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
-
-. Style Guidelines : Betty and verification done using betty-style.pl and betty-doc.pl
-
-. No use of global variables
-
-. No more than 5 functions per file
-
-. Function prototypes are in the header file main.h
+- Compiled on Ubuntu 24.04.1 LTS*
+- Programs and functions will be compiled with gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+- Style Guidelines : Betty and verification done using betty-style.pl and betty-doc.pl
+- No use of global variables
+- No more than 5 functions per file
+- Function prototypes are in the header file main.h
     
 ## Requirements
 
-### General
+### *General*
 
 - Allowed editors: vi, vim, emacs
 - All your files will be compiled on Ubuntu 20.04
@@ -45,46 +39,75 @@ Ce projet de simple shell a été réalisé dans le cadre d'une formation pour c
 
 ## Fonctionnalités
 
-- Exécution de commandes simples
-- Gestion des chemins d'accès
-- Commandes intégrées : ls, exit, 
-- Redirection de l'entrée/sortie
+- Simple command execution
+- Path management
+- Built-in commands: ls, exit,
+- Input/output redirection
 
+### Flowchart
+![Flowchart](https://i.imgur.com/doouQbQ.png)
 
 ## Installation
 
-Pour installer et configurer le projet, suivez les étapes ci-dessous :
+To install and configure the project, follow the steps below:
 
-1. Clonez le dépôt :
-   ```bash
-   git clone https://github.com/HLS-976/holbertonschool-simple_shell.git
+1. Clone the repository:
 
-2. Accédez au répertoire du projet :
-   ```bash
-    cd holbertonschool-simple_shell
-3. Compilez le projet :
-   ```bash
-    gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell
-4. Exécutez le shell :
-    ```bash
-    ./simple_shell
+    `git clone https://github.com/HLS-976/holbertonschool-simple_shell.git`
 
+2. Change to the project directory:
+
+    `ls holbertonschool-simple_shell`
+
+3. Compile the project:
+
+    `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell`
+
+4. Run the shell:
+
+    `./simple_shell`
+
+
+## Demonstrations /bin/ls -l, ls, pwd,
+```
+(shell)-$/bin/ls -l
+total 60
+-rw-r--r-- 1 root root   140 Dec 26 11:45 AUTHORS
+-rw-r--r-- 1 root root  3030 Dec 26 11:45 README.md
+-rw-r--r-- 1 root root   429 Dec 26 15:46 child_exit.c
+-rw-r--r-- 1 root root   613 Dec 20 15:05 count_tokens.c
+-rw-r--r-- 1 root root  1424 Dec 26 12:02 execution.c
+-rw-r--r-- 1 root root   520 Dec 26 15:47 main.h
+-rw-r--r-- 1 root root  2136 Dec 26 11:45 man_1_simple_shell
+-rw-r--r-- 1 root root   540 Dec 20 15:05 read_line.c
+-rw-r--r-- 1 root root   900 Dec 26 16:27 shell.c
+-rwxr-xr-x 1 root root 16888 Dec 26 16:31 test
+-rw-r--r-- 1 root root   742 Dec 20 15:05 tokenize_line.c
+
+
+(shell)-$/bin/ls
+AUTHORS    child_exit.c    execution.c  man_1_simple_shell  shell.c  tokenize_line.c
+README.md  count_tokens.c  main.h       read_line.c         test
+
+(shell)-$/bin/pwd
+/root/holbertonschool-simple_shell
+```
 
 ## Compilation
 
-Pour compiler le shell, utilisez la commande suivante :
+To compile the shell, use the following command:
 
-## `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell`
+### `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell`
 
 ## Use man in shell
 
-## `man simple_shell`
+### `man_1_simple_shell`
 
 ## Bugs
 
 ### *No known bugs exists within the program as of this writing*
 
-- Si vous rencontrez des bugs ou des problèmes, veuillez les signaler via l'[issue tracker](https://github.com/HLS-976/holbertonschool-simple_shell)
+- If you encounter any bugs or issues, please report them via l'[issue tracker](https://github.com/HLS-976/holbertonschool-simple_shell)
 
 ## Project carried out by
 
@@ -94,9 +117,9 @@ Pour compiler le shell, utilisez la commande suivante :
 
 - David Tolza [@VidadTol](https://www.github.com/VidadTol)
 
-## Licence
+## License
 
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ![logo](https://i.imgur.com/J1oVLId.jpeg)
 
