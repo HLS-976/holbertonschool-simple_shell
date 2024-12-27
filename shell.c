@@ -7,6 +7,7 @@ int main(void)
 {
 	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
+	char **tokens;
 	char *lineptr;
 
 	while (1)
@@ -32,6 +33,12 @@ int main(void)
 		}
 
 		tokens = tokenize_line(line_copy, delim, token_count);
+		if (!tokens)
+		{
+			free(lineptr);
+			free(line_copy);
+			continue;
+		}
 
 
 		if (child_exit(tokens, line_copy, lineptr) == 0)
@@ -39,7 +46,7 @@ int main(void)
 			return (0);
 		}
 		/*app la fonction execution*/
-		execution(tokens, 10)
+		execution(tokens, 10);
 		free(tokens);
 		free(line_copy);
 		free(lineptr);
