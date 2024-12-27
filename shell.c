@@ -3,7 +3,6 @@
 void read_and_tokenize_line(const char *prompt, const char *delim);
 int process_line(char *lineptr, const char *delim);
 void handle_tok(char **tokens, char *line_copy, char *lineptr);
-	
 
 /**
  *main - Shell program entry point
@@ -62,7 +61,7 @@ int process_line(char *lineptr, const char *delim)
 	char *line_copy;
 	char **tokens;
 
-        token_count = count_tokens(lineptr, delim);
+	token_count = count_tokens(lineptr, delim);
 
 	if (token_count <= 0)
 	{
@@ -97,7 +96,6 @@ int process_line(char *lineptr, const char *delim)
  * @tokens: The array of tokens to handle
  * @line_copy: A duplicated copy of the input line
  * @lineptr: The original input line
- * @token_count: The number of tokens
  */
 
 /* Fonction pour gérer les tokens */

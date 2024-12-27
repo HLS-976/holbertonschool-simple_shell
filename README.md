@@ -84,13 +84,23 @@ total 60
 -rwxr-xr-x 1 root root 16888 Dec 26 16:31 test
 -rw-r--r-- 1 root root   742 Dec 20 15:05 tokenize_line.c
 
-
 (shell)-$/bin/ls
 AUTHORS    child_exit.c    execution.c  man_1_simple_shell  shell.c  tokenize_line.c
 README.md  count_tokens.c  main.h       read_line.c         test
 
 (shell)-$/bin/pwd
 /root/holbertonschool-simple_shell
+
+(shell)-$exit
+==2630==
+==2630== HEAP SUMMARY:
+==2630==     in use at exit: 0 bytes in 0 blocks
+==2630==   total heap usage: 14 allocs, 14 frees, 2,518 bytes allocated
+==2630==
+==2630== All heap blocks were freed -- no leaks are possible
+==2630==
+==2630== For lists of detected and suppressed errors, rerun with: -s
+==2630== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ```
 
 ## Compilation
