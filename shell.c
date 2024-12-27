@@ -8,7 +8,7 @@
 /*Fonction principale*/
 int main(void)
 {
-	const char *prompt = "(shell)-$";
+	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
 	char *lineptr;
 	int token_count;
@@ -28,7 +28,7 @@ int main(void)
 		}
 		line_copy = strdup(lineptr);
 
-		char *line_copy = strdup(lineptr);
+		line_copy = strdup(lineptr);
 		if (!line_copy)
 		{
 			perror("Error duplicating line");
@@ -36,13 +36,8 @@ int main(void)
 			continue;
 		}
 
-		char **tokens = tokenize_line(line_copy, delim, token_count);
-		if (!tokens)
-		{
-			free(lineptr);
-			free(line_copy);
-			continue;
-		}
+		tokens = tokenize_line(line_copy, delim, token_count);
+		(!tokens) ? (free(lineptr), free(line_copy), continue) : (void)0;
 
 		if (strcmp(tokens[0], "exit") == 0) 
 		{

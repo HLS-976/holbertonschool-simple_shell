@@ -20,6 +20,4 @@ int count_tokens(const char *line, const char *delim);
 
 int execution(char *argv[], int token_count);
 
-char *find_command_path(char *cmd);
-
 #endif

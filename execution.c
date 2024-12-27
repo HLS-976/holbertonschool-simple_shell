@@ -11,10 +11,10 @@ int execution(char *argv[], int token_count)
 {
 	pid_t pid;
 	int status;
-	char *command_path;
 	extern char **environ;/*environnemt*/
 
-	(void)token_count;
+	(void)token_count; 
+	(void)environ;
 
 	pid = fork();/*Crée un processus fils*/
 	if (pid < 0) /* Erreur lors du fork*/
@@ -24,13 +24,6 @@ int execution(char *argv[], int token_count)
 	}
 	else if (pid == 0) /* Code exécuté dans le fils*/
 	{
-	/*	command_path = find_command_path(argv[0]);*Recherche du chemin de la commande
-		if (command_path == NULL)
-		{
-			perror("commande introuvable");
-			_exit(EXIT_FAILURE);
-		}
-		*/
 		if (execve(argv[0], argv, NULL) == -1)/*Exécute la commande*/
 		{
 			perror("Erreur lors de l'exécution de la commande");
