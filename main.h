@@ -22,4 +22,6 @@ int execution(char *argv[], int token_count);
 
 char *find_command_path(char *cmd);
 
+int child_exit(char **tokens, char *line_copy, char *lineptr);
+
 #endif
