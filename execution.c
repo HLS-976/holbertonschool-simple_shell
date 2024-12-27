@@ -3,32 +3,24 @@
 /**
  * execution - Creates a child process to execute a program
  * @argv: Array of strings containing the program name and its arguments
- * @token_count: The number of tokens in argv
  * Return: The exit code of the executed program, or -1 on error
  */
 
-int execution(char *argv[], int token_count)
+int execution(char *argv[],int token_count)
 {
 	pid_t pid;
 	int status;
-	char *command_path;
-	extern char **environ;/*environnemt*/
+	/*char *command_path;*/
+	/*extern char **environ;*environnemt*/
 
 	pid = fork();/*Crée un processus fils*/
-	if (pid < 0) /* Erreur lors du fork*/
+	if (pid < 0) /*Erreur lors du fork*/
 	{
 		perror("Erreur lors de la création du processus");
 		return (-1);/*Retourne une erreur*/
 	}
-	else if (pid == 0) /* Code exécuté dans le fils*/
+	else if (pid == 0) /*Code exécuté dans le fils*/
 	{
-	/*	command_path = find_command_path(argv[0]);*Recherche du chemin de la commande
-		if (command_path == NULL)
-		{
-			perror("commande introuvable");
-			_exit(EXIT_FAILURE);
-		}
-		*/
 		if (execve(argv[0], argv, NULL) == -1)/*Exécute la commande*/
 		{
 			perror("Erreur lors de l'exécution de la commande");
@@ -36,13 +28,13 @@ int execution(char *argv[], int token_count)
 		}
 	}
 	else
-	{ /* Code exécuté dans le parent*/
-		if (wait(&status) == -1)/* Attend la fin du fils*/
+	{ /*Code exécuté dans le parent*/
+		if (wait(&status) == -1)/*Attend la fin du fils*/
 		{
 			perror("Erreur lors de l'attente du processus fils");
 			return (-1);/*Retourne une erreur*/
 		}
-		if (WIFEXITED(status))/* Vérifie si le fils s'est terminé normalement*/
+		if (WIFEXITED(status))/*Vérifie si le fils s'est terminé normalement*/
 		{
 			return (WEXITSTATUS(status));/*Retourne le code de sortie du fils*/
 		}
