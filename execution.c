@@ -10,8 +10,16 @@ int execution(char *argv[],int token_count)
 {
 	pid_t pid;
 	int status;
-	/*char *command_path;*/
-	/*extern char **environ;*environnemt*/
+	/*char *command_path;
+	
+	command_path = find_command_path(argv[0]);
+	if (!command_path)
+	{
+		printf(stderr, "command not found: %s\n",argv[0]);
+		return(-1);
+	}
+	*/
+	(void)token_count;
 
 	pid = fork();/*Crée un processus fils*/
 	if (pid < 0) /*Erreur lors du fork*/

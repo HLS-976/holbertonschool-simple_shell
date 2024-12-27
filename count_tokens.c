@@ -14,6 +14,7 @@ int count_tokens(const char *line, const char *delim)
 {
 	int count = 0;
 	char *line_copy = strdup(line);
+	char *token;
 
 	if (!line_copy)
 	{
@@ -21,7 +22,7 @@ int count_tokens(const char *line, const char *delim)
 		return (-1);
 	}
 
-	char *token = strtok(line_copy, delim);
+	token = strtok(line_copy, delim);
 
 	while (token)
 	{
