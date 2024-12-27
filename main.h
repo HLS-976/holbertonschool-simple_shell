@@ -20,4 +20,6 @@ int count_tokens(const char *line, const char *delim);
 
 int execution(char *argv[], int token_count);
 
+int child_exit(char **tokens, char *line_copy, char *lineptr);
+
 #endif
