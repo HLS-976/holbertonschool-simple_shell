@@ -12,10 +12,11 @@ char *read_line(const char *prompt)
 {
 	char *lineptr = NULL;
 	size_t length = 0;
+	ssize_t chars_read;
 
 	printf("%s", prompt);
 
-	ssize_t chars_read = getline(&lineptr, &length, stdin);
+	chars_read = getline(&lineptr, &length, stdin);
 
 	if (chars_read == -1)
 	{

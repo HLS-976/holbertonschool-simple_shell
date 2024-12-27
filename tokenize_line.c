@@ -14,6 +14,8 @@
 char **tokenize_line(char *line, const char *delim, int token_count)
 {
 	char **tokens = malloc((token_count + 1) * sizeof(char *));
+	int i = 0;
+	char *token;
 
 	if (!tokens)
 	{
@@ -21,9 +23,9 @@ char **tokenize_line(char *line, const char *delim, int token_count)
 		return (NULL);
 	}
 
-	int i = 0;
+	i = 0;
 
-	char *token = strtok(line, delim);
+	token = strtok(line, delim);
 
 	while (token)
 	{

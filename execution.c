@@ -10,8 +10,6 @@ int execution(char *argv[],int token_count)
 {
 	pid_t pid;
 	int status;
-	/*char *command_path;*/
-	/*extern char **environ;*environnemt*/
 
 	(void)token_count;
 
