@@ -9,6 +9,7 @@ int main(void)
 	const char *delim = " \t\n";
 	char **tokens;
 	char *lineptr;
+	char *line_copy;
 
 	while (1)
 	{
@@ -16,13 +17,11 @@ int main(void)
 		if (!lineptr)
 			break;
 		int token_count = count_tokens(lineptr, delim);
-
 		if (token_count <= 0)
 		{
 			free(lineptr);
 			continue;
 		}
-		char *line_copy = strdup(lineptr);
 
 		line_copy = strdup(lineptr);
 		if (!line_copy)
@@ -45,7 +44,7 @@ int main(void)
 		{
 			return (0);
 		}
-		/*app la fonction execution*/
+
 		execution(tokens, 10);
 		free(tokens);
 		free(line_copy);
