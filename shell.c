@@ -12,7 +12,7 @@ void handle_tok(char **tokens, char *line_copy, char *lineptr);
 /* Point d'entrée principal du programme */
 int main(void)
 {
-	const char *prompt = "(shell)-$";
+	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
 
 	while (1)
