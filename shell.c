@@ -30,39 +30,21 @@ int main(void)
 			free(lineptr);
 			continue;
 		}
-<<<<<<< HEAD
 
 		char **tokens = tokenize_line(line_copy, delim, token_count);
-=======
-		char **tokens = tokenize_line(line_copy, delim, token_count);
-
->>>>>>> David
 		if (!tokens)
 		{
 			free(lineptr);
 			free(line_copy);
 			continue;
 		}
-<<<<<<< HEAD
 
-		if (strcmp(tokens[0], "exit") == 0) 
-		{
-			free(tokens);
-			free(line_copy);
-			free(lineptr);
-			return (0);
-		}
-
-		execution(tokens, 10);
-
-=======
 		if (child_exit(tokens, line_copy, lineptr) == 0)
 		{
 			return (0);
 		}
 		/*app la fonction execution*/
-		execution(tokens, 10);
->>>>>>> David
+		execution(tokens, 10)
 		free(tokens);
 		free(line_copy);
 		free(lineptr);
