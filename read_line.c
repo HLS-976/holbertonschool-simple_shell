@@ -7,7 +7,7 @@
 
 /* Fonction pour lire une ligne depuis l'utilisateur*/
 
-char *read_line(const char *prompt)
+char *read_line(void)
 {
 	char *lineptr = NULL;
 	size_t length = 0;

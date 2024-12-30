@@ -1,6 +1,6 @@
 #include "main.h"
 
-void read_and_tokenize_line(const char *prompt, const char *delim);
+void read_and_tokenize_line(const char *delim);
 int process_line(char *lineptr, const char *delim);
 void handle_tok(char **tokens, char *line_copy, char *lineptr);
 
@@ -20,7 +20,7 @@ int main(void)
 		while (1)
 		{
 			printf("%s", prompt);
-			read_and_tokenize_line(delim)
+			read_and_tokenize_line(delim);
 		}
 	}
 
@@ -33,11 +33,10 @@ int main(void)
 }
 /**
  * read_and_tokenize_line - Reads an input line
- * @prompt: The prompt to display to the user
  * @delim: The delimiters used to tokenize the input
  */
 /* Fonction pour lire et tokeniser la ligne d'entrée */
-void read_and_tokenize_line(const char *prompt, const char *delim)
+void read_and_tokenize_line(const char *delim)
 {
 	char *lineptr;
 
