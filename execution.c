@@ -12,7 +12,8 @@ int execution(char *argv[], int token_count)
 	pid_t pid;
 	int status;
 
-	(void)token_count;
+	(void)token_count; 
+	(void)environ;
 
 	pid = fork();/*Crée un processus fils*/
 	if (pid < 0) /*Erreur lors du fork*/
