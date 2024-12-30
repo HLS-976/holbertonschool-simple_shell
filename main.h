@@ -12,7 +12,7 @@
 
 /* Prototypes */
 
-char *read_line(const char *prompt);
+char *read_line(void);
 
 char **tokenize_line(char *line, const char *delim, int token_count);
 
@@ -20,8 +20,8 @@ int count_tokens(const char *line, const char *delim);
 
 int execution(char *argv[], int token_count);
 
-char *find_command_path(char *cmd);
-
 int child_exit(char **tokens, char *line_copy, char *lineptr);
+
+int is_interactive(void);
 
 #endif
