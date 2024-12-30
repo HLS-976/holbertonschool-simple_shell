@@ -1,6 +1,6 @@
 #include "main.h"
 
-void read_and_tokenize_line(const char *prompt, const char *delim);
+void read_and_tokenize_line(const char *delim);
 int process_line(char *lineptr, const char *delim);
 void handle_tok(char **tokens, char *line_copy, char *lineptr);
 
@@ -14,10 +14,18 @@ int main(void)
 {
 	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
-
-	while (1)
+	
+	if (is_interactive())
 	{
-		read_and_tokenize_line(prompt, delim);
+		while (1)
+		{
+			printf("%s", prompt);
+			read_and_tokenize_line(delim);
+		}
+	}
+	else
+	{
+		read_and_tokenize_line(delim);
 	}
 
 	return (0);
@@ -28,11 +36,11 @@ int main(void)
  * @delim: The delimiters used to tokenize the input
  */
 /* Fonction pour lire et tokeniser la ligne d'entrée */
-void read_and_tokenize_line(const char *prompt, const char *delim)
+void read_and_tokenize_line(const char *delim)
 {
 	char *lineptr;
 
-	lineptr	= read_line(prompt);
+	lineptr	= read_line();
 
 	if (!lineptr)
 	{
