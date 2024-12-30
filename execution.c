@@ -3,14 +3,14 @@
 /**
  * execution - Creates a child process to execute a program
  * @argv: Array of strings containing the program name and its arguments
+ * @token_count: argument
  * Return: The exit code of the executed program, or -1 on error
  */
 
-int execution(char *argv[],int token_count)
+int execution(char *argv[], int token_count)
 {
 	pid_t pid;
 	int status;
-	extern char **environ;
 
 	(void)token_count; 
 	(void)environ;

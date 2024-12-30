@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *child_exit - checks if the command is "exit" 
+ *child_exit - checks if the command is "exit"
  *@tokens: array of tokens
  *@line_copy: copy of the command line
  *@lineptr: pointer to the original command line
