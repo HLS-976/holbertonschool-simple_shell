@@ -20,9 +20,5 @@ int count_tokens(const char *line, const char *delim);
 
 int execution(char *argv[], int token_count);
 
-char *find_command_path(char *cmd);
-
 int child_exit(char **tokens, char *line_copy, char *lineptr);
-
-int is_interactive(void);
 #endif

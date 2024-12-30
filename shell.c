@@ -14,8 +14,8 @@ int main(void)
 {
 	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
-	
-	if (is_interactive())
+  
+	while (1)
 	{
 		while (1)
 		{
