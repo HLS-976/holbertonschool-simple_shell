@@ -1,6 +1,6 @@
 #include "main.h"
 
-void read_and_tokenize_line(const char *delim);
+int read_and_tokenize_line(const char *delim);
 int process_line(char *lineptr, const char *delim);
 void handle_tok(char **tokens, char *line_copy, char *lineptr);
 
@@ -20,10 +20,10 @@ int main(void)
 		while (1)
 		{
 			printf("%s", prompt);
-			read_and_tokenize_line(delim);
+			if (read_and_tokenize_line(delim) == 0)
+			break;
 		}
 	}
-
 	else
 	{
 		read_and_tokenize_line(delim);
@@ -34,27 +34,33 @@ int main(void)
 /**
  * read_and_tokenize_line - Reads an input line
  * @delim: The delimiters used to tokenize the input
+ * Return: always 0
  */
 /* Fonction pour lire et tokeniser la ligne d'entrée */
-void read_and_tokenize_line(const char *delim)
+int read_and_tokenize_line(const char *delim)
 {
-	char *lineptr;
+	char *lineptr = NULL;
+	size_t n = 0;
+	ssize_t nread;
 
-	lineptr	= read_line();
+	nread = getline(&lineptr, &n, stdin);
 
-	if (!lineptr)
+	if (nread == -1)
 	{
-		return;
+		printf("\n");
+		free(lineptr);
+		return (0);
 	}
 
 	if (process_line(lineptr, delim) == 0)
 	{
 		free(lineptr);
-		return;
+		return (1);
 	}
-
 	free(lineptr);
+	return (1);
 }
+
 /**
  * process_line - Processes the input line by counting tokens
  * @lineptr: The input line to process
@@ -109,8 +115,9 @@ int process_line(char *lineptr, const char *delim)
 /* Fonction pour gérer les tokens */
 void handle_tok(char **tokens, char *line_copy, char *lineptr)
 {
-	if (child_exit(tokens, line_copy, lineptr) == 0)
+	if (child_exit(tokens, line_copy, lineptr, 0) == 0)
 	{
+		printf("\n");
 		exit(0); /*Quitter le programme si la commande est "exit"*/
 	}
 
