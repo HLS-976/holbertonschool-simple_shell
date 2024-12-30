@@ -15,9 +15,18 @@ int main(void)
 	const char *prompt = "(shell)-$";
 	const char *delim = " \t\n";
 
-	while (1)
+	if (is_interactive())
 	{
-		read_and_tokenize_line(prompt, delim);
+		while (1)
+		{
+			printf("%s", prompt);
+			read_and_tokenize_line(delim)
+		}
+	}
+
+	else
+	{
+		read_and_tokenize_line(delim);
 	}
 
 	return (0);
@@ -32,7 +41,7 @@ void read_and_tokenize_line(const char *prompt, const char *delim)
 {
 	char *lineptr;
 
-	lineptr	= read_line(prompt);
+	lineptr	= read_line();
 
 	if (!lineptr)
 	{
