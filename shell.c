@@ -1,10 +1,6 @@
 #include "main.h"
 
-<<<<<<< HEAD
-void read_and_tokenize_line(const char *delim);
-=======
 int read_and_tokenize_line(const char *delim);
->>>>>>> main
 int process_line(char *lineptr, const char *delim);
 void handle_tok(char **tokens, char *line_copy, char *lineptr);
 
@@ -18,19 +14,6 @@ int main(void)
 {
 	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
-<<<<<<< HEAD
- 	
-	if (is_interactive())
-	{	
-		while (1)
-		{
-			printf("%s", prompt);
-			read_and_tokenize_line(delim);
-		}
-	}
-	else
-	{
-=======
 
 	if (is_interactive())
 	{
@@ -43,7 +26,6 @@ int main(void)
 	}
 	else
 	{
->>>>>>> main
 		read_and_tokenize_line(delim);
 	}
 
@@ -55,21 +37,13 @@ int main(void)
  * Return: always 0
  */
 /* Fonction pour lire et tokeniser la ligne d'entrée */
-<<<<<<< HEAD
-void read_and_tokenize_line(const char *delim)
-=======
 int read_and_tokenize_line(const char *delim)
->>>>>>> main
 {
 	char *lineptr = NULL;
 	size_t n = 0;
 	ssize_t nread;
 
-<<<<<<< HEAD
-	lineptr	= read_line();
-=======
 	nread = getline(&lineptr, &n, stdin);
->>>>>>> main
 
 	if (nread == -1)
 	{
