@@ -121,6 +121,7 @@ void handle_tok(char **tokens, char *line_copy, char *lineptr)
 		exit(0); /*Quitter le programme si la commande est "exit"*/
 	}
 
+
 	execution(tokens);
 
 	free(tokens);
