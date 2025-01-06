@@ -11,12 +11,20 @@ int execution(char *argv[])
 {
 	pid_t pid;
 	int status;
-	char *command_path = find_command_in_path(argv[0]);
+	char *command;
 
-	if (!command_path)
+	if (access(argv[0], X_OK) == 0)
 	{
-		perror("Command not found");
-		return (-1);
+		command = argv[0];
+	}
+	else
+	{
+		command = find_command_in_path(argv[0]);
+		if (!command)
+		{
+			perror("Command not found");
+			return (-1);
+		}
 	}
 
 	pid = fork();/*Crée un processus fils*/
@@ -27,7 +35,7 @@ int execution(char *argv[])
 	}
 	else if (pid == 0) /*Code exécuté dans le fils*/
 	{
-		if (execve(argv[0], argv, NULL) == -1)/*Exécute la commande*/
+		if (execve(command, argv, NULL) == -1)/*Exécute la commande*/
 		{
 			perror("Erreur lors de l'exécution de la commande");
 			_exit(EXIT_FAILURE);/*Termine le fils proprement*/
