@@ -26,7 +26,7 @@ int child_exit(char **tokens, char *line_copy, char *lineptr, ssize_t nread)
 		free(lineptr);
 		return (0);
 	}
-	if (strcmp(tokens[0], "exit") == 0)
+	if (strncmp(tokens[0], "exit", 4) == 0)
 	{
 		free(tokens);
 		free(line_copy);

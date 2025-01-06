@@ -117,7 +117,6 @@ void handle_tok(char **tokens, char *line_copy, char *lineptr)
 {
 	if (child_exit(tokens, line_copy, lineptr, 0) == 0)
 	{
-		printf("\n");
 		exit(0); /*Quitter le programme si la commande est "exit"*/
 	}
 
