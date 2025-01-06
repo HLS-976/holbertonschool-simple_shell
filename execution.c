@@ -7,12 +7,17 @@
  * Return: The exit code of the executed program, or -1 on error
  */
 
-int execution(char *argv[], int token_count)
+int execution(char *argv[])
 {
 	pid_t pid;
 	int status;
+	char *command_path = find_command_in_path(argv[0]);
 
-	(void)token_count;
+	if (!command_path)
+	{
+		perror("Command not found");
+		return (-1);
+	}
 
 	pid = fork();/*Crée un processus fils*/
 	if (pid < 0) /*Erreur lors du fork*/
