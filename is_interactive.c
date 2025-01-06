@@ -6,6 +6,7 @@
  */
 
 
+
 int is_interactive(void)
 {
 	return (isatty(fileno(stdin)));
