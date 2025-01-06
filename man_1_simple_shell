@@ -32,10 +32,6 @@ When executing interactively, the simpl_shell displays the prompt \fB"(shell)-$"
 .SH COMMANDS
 The shell supports the following commands:
 
-.TP
-.B exit
-Exit the shell
-
 .SH Compilation
 .PP
 gcc execution.c count_tokens.c read_line.c tokenize_line.c shell.c main.h -o hsh
@@ -61,9 +57,11 @@ Lists all files (including hidden ones) in the current directory in long format.
 .B \fB/bin/pwd\fR 
 Prints the current working directory. 
 .TP 
-.B \fB/bin/echo "Hello World"\fR 
-Prints "Hello World" to the terminal.
-
+.B \fB/bin/echo "Hello, World"\fR 
+Prints "Hello, World" to the terminal.
+.TP
+.B \fB/exit and CTRL D\fR
+Allows to exit the simple shell.
 
 
 
