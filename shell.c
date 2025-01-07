@@ -79,7 +79,6 @@ int process_line(char *lineptr, const char *delim)
 
 	if (token_count <= 0)
 	{
-		free(lineptr);
 		return (0); /* Continuer la boucle*/
 	}
 
@@ -88,7 +87,6 @@ int process_line(char *lineptr, const char *delim)
 	if (!line_copy)
 	{
 		perror("Error duplicating line");
-		free(lineptr);
 		return (0); /* Continuer la boucle*/
 	}
 
@@ -96,7 +94,6 @@ int process_line(char *lineptr, const char *delim)
 
 	if (!tokens)
 	{
-		free(lineptr);
 		free(line_copy);
 		return (0); /*Continuer la boucle*/
 	}

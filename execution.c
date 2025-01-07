@@ -50,10 +50,11 @@ int execution(char *argv[])
 	return (0);/*Retourne 0 si tout s'est bien passé*/
 }
 
-/*
- *
- *
- *
+/**
+ * check_command - checks if a command id executable
+ * @argv: Array of strings representing the command and its arguments
+ * Return: The command itself if it is executable, or the full path
+ * of the command found in PATH. Returns NULL if the command is not found.
  */
 char *check_command(char *argv[])
 {

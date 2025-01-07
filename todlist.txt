@@ -1,3 +1,16 @@
-- Création de l'environnement
+- Création de l'environnement, gerer env
 - Réagencement du code
-- Readme - ajout du flowchart, des différentes commandes possibles, etc..
+- Readme, flowchart,man page
+
+* modif strdup fichier shell.c et count token
+
+char *strdup(const char *s) {
+    size_t len = strlen(s) + 1; // Longueur de la chaîne + 1 pour le caractère nul
+    char *new_str = (char *)malloc(len); // Allocation de mémoire
+
+    if (new_str == NULL) {
+        return NULL; // Échec de l'allocation de mémoire
+    }
+
+    return (char *)memcpy(new_str, s, len); // Copie de la chaîne
+}
