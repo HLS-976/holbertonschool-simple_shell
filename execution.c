@@ -34,6 +34,7 @@ int execution(char *argv[])
 		if (execve(command, argv, NULL) == -1)/*Exécute la commande*/
 		{
 			perror("Erreur lors de l'exécution de la commande");
+			free(command);
 			_exit(EXIT_FAILURE);/*Termine le fils proprement*/
 		}
 	}

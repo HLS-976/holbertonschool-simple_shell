@@ -13,17 +13,7 @@ int child_exit(char **tokens, char *line_copy, char *lineptr, ssize_t nread)
 {
 	if (nread == -1 || tokens[0] == NULL || strncmp(tokens[0], "exit", 4) == 0)
 	{
-		if (tokens)
-		{
-			int i;
-
-			for (i = 0; tokens[i] != NULL; i++)
-			{
-				free(tokens[i]);
-			}
-
-			free(tokens);
-		}
+		free(tokens);
 		free(line_copy);
 		free(lineptr);
 		return (0);

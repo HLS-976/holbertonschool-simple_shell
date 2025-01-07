@@ -15,7 +15,7 @@ char **tokenize_line(char *line, const char *delim, int token_count)
 {
 	char **tokens = malloc((token_count + 1) * sizeof(char *));
 	int i = 0;
-	char *token;
+	char *token; *saveptr;
 
 	if (!tokens)
 	{
@@ -23,12 +23,21 @@ char **tokenize_line(char *line, const char *delim, int token_count)
 		return (NULL);
 	}
 
-	token = strtok(line, delim);
+	token = strtok(line, delim, &saveptr);
 
 	while (token)
 	{
-		tokens[i++] = token;
-		token = strtok(NULL, delim);
+		tokens[i] = strdup(token);
+		if (!tokens[i])
+		{
+			perror("Error duplicating token");
+			while (i > 0)
+				free(tokens[--i]);
+			free(tokens);
+			return (NULL);
+		}
+		i++;
+		token = strtok(NULL, delim, &saveptr);
 	}
 	tokens[i] = NULL;
 
