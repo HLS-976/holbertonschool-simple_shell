@@ -20,7 +20,7 @@ int execution(char *argv[]);
 
 int is_interactive(void);
 
-int child_exit(char **tokens, char *line_copy,ssize_t nread);
+int child_exit(char **tokens, char *line_copy, ssize_t nread);
 
 char *find_command_in_path(char *command);
 
