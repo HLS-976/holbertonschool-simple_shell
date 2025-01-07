@@ -15,8 +15,8 @@ int main(void)
 	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
 
-	signal(SIGINT, handle_signal);
-	signal(SIGTSTP, handle_signal);
+	signal(SIGINT, SIG_IGN);
+	signal(SIGTSTP, SIG_IGN);
 
 	if (is_interactive())
 	{
