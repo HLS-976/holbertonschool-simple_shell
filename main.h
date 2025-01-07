@@ -26,4 +26,6 @@ char *find_command_in_path(char *command);
 
 int is_interactive(void);
 
+void handle_signal(int sig);
+
 #endif
