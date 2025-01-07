@@ -9,5 +9,5 @@
 
 int is_interactive(void)
 {
-	return (isatty(fileno(stdin)));
+	return (isatty(STDIN_FILENO));
 }
