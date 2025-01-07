@@ -90,6 +90,7 @@ int process_line(char *lineptr, const char *delim)
 	if (!line_copy)
 	{
 		perror("Error duplicating line");
+		free(line_copy);
 		return (0); /* Continuer la boucle*/
 	}
 
