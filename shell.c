@@ -15,13 +15,16 @@ int main(void)
 	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
 
+	signal(SIGINT, handle_signal);
+	signal(SIGTSTP, handle_signal);
+
 	if (is_interactive())
 	{
 		while (1)
 		{
 			printf("%s", prompt);
 			if (read_and_tokenize_line(delim) == 0)
-			break;
+				break;
 		}
 	}
 	else
@@ -115,15 +118,24 @@ int process_line(char *lineptr, const char *delim)
 /* Fonction pour gérer les tokens */
 void handle_tok(char **tokens, char *line_copy, char *lineptr)
 {
+
 	if (child_exit(tokens, line_copy, lineptr, 0) == 0)
 	{
 		exit(0); /*Quitter le programme si la commande est "exit"*/
 	}
 
-
 	execution(tokens);
 
-	free(tokens);
+	if (tokens)
+	{
+		int i;
+
+		for (i = 0; tokens[i] != NULL; i++)
+		{
+			free(tokens[i]);
+		}
+		free(tokens);
+	}
 	free(line_copy);
 
 }

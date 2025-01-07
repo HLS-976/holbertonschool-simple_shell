@@ -7,9 +7,6 @@
  * Return: The number of tokens found, or -1 on error
  */
 
-
-/* Fonction pour compter le nombre de tokens dans une ligne*/
-
 int count_tokens(const char *line, const char *delim)
 {
 	int count = 0;

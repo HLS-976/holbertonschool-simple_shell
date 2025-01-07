@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 char *find_command_in_path(char *command)
 {
 	char *path = getenv("PATH");

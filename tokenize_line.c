@@ -23,8 +23,6 @@ char **tokenize_line(char *line, const char *delim, int token_count)
 		return (NULL);
 	}
 
-	i = 0;
-
 	token = strtok(line, delim);
 
 	while (token)
