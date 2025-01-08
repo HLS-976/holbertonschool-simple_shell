@@ -49,10 +49,11 @@ int read_and_tokenize_line(const char *delim, char **argv)
 	char *lineptr = NULL;
 	size_t n = 0;
 	ssize_t nread;
+	int status = 0;
 
 	nread = getline(&lineptr, &n, stdin);
 
-	if (nread == -1)
+	if (nread == EOF)
 	{
 		printf("\n");
 		free(lineptr);
@@ -62,7 +63,7 @@ int read_and_tokenize_line(const char *delim, char **argv)
 	if (strncmp(lineptr, "exit", 4) == 0)
 	{
 		free(lineptr);
-		exit(0);
+		exit(status);
 	}
 
 	if (strncmp(lineptr, "env", 3) == 0)
