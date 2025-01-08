@@ -1,6 +1,6 @@
 #include "main.h"
 
-char *check_command(char *argv[]);
+char *check_command(char *array[]);
 
 /**
  * execution - Creates a child process to execute a program
@@ -8,17 +8,17 @@ char *check_command(char *argv[]);
  * Return: The exit code of the executed program, or -1 on error
  */
 
-int execution(char *argv[])
+int execution(char *array[], char **argv)
 {
 	pid_t pid;
 	int status;
 	char *command;
 
-	command = check_command(argv);
+	command = check_command(array);
 	if (!command)
 	{
-		perror("");
-		return (-1);
+		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], array[0]);
+		return (127);
 	}
 	pid = fork();/*Crée un processus fils*/
 	if (pid < 0) /*Erreur lors du fork*/
@@ -29,9 +29,9 @@ int execution(char *argv[])
 	}
 	else if (pid == 0) /*Code exécuté dans le fils*/
 	{
-		if (execve(command, argv, NULL) == -1)/*Exécute la commande*/
+		if (execve(command, array, NULL) == -1)/*Exécute la commande*/
 		{
-			perror("Erreur lors de l'exécution de la commande");
+			perror("ERREUR");
 			free(command);
 			_exit(EXIT_FAILURE);/*Termine le fils proprement*/
 		}
@@ -61,17 +61,17 @@ int execution(char *argv[])
  * Return: The command itself if it is executable, or the full path
  * of the command found in PATH. Returns NULL if the command is not found.
  */
-char *check_command(char *argv[])
+char *check_command(char *array[])
 {
 	char *command;
 
-	if (access(argv[0], X_OK) == 0)
+	if (access(array[0], X_OK) == 0)
 	{
-		command = strdup(argv[0]);
+		command = strdup(array[0]);
 	}
 	else
 	{
-		command = find_command_in_path(argv[0]);
+		command = find_command_in_path(array[0]);
 	}
 	return (command);
 }
