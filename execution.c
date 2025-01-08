@@ -17,7 +17,7 @@ int execution(char *argv[])
 	command = check_command(argv);
 	if (!command)
 	{
-		perror("Command not found");
+		perror("");
 		return (-1);
 	}
 	pid = fork();/*Crée un processus fils*/
@@ -62,7 +62,7 @@ char *check_command(char *argv[])
 
 	if (access(argv[0], X_OK) == 0)
 	{
-		command = argv[0];
+		command = strdup(argv[0]);
 	}
 	else
 	{

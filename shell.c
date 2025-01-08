@@ -10,10 +10,13 @@ void handle_tok(char **tokens, char *line_copy);
  */
 
 /* Point d'entrée principal du programme */
-int main(void)
+int main(int ac, char **av)
 {
 	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
+
+	(void)ac;
+	(void)av;
 
 	signal(SIGINT, SIG_IGN);
 	signal(SIGTSTP, SIG_IGN);
