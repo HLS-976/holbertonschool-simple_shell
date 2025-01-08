@@ -24,6 +24,7 @@ int execution(char *argv[])
 	if (pid < 0) /*Erreur lors du fork*/
 	{
 		perror("Erreur lors de la création du processus");
+		free(command);
 		return (-1);/*Retourne une erreur*/
 	}
 	else if (pid == 0) /*Code exécuté dans le fils*/
@@ -31,6 +32,7 @@ int execution(char *argv[])
 		if (execve(command, argv, NULL) == -1)/*Exécute la commande*/
 		{
 			perror("Erreur lors de l'exécution de la commande");
+			free(command);
 			_exit(EXIT_FAILURE);/*Termine le fils proprement*/
 		}
 	}
@@ -39,14 +41,17 @@ int execution(char *argv[])
 		if (wait(&status) == -1)/*Attend la fin du fils*/
 		{
 			perror("Erreur lors de l'attente du processus fils");
+			free(command);
 			return (-1);/*Retourne une erreur*/
 		}
 		if (WIFEXITED(status))/*Vérifie si le fils s'est terminé normalement*/
 		{
+			free(command);
 			return (WEXITSTATUS(status));/*Retourne le code de sortie du fils*/
 		}
 	}
 
+	free(command);
 	return (0);/*Retourne 0 si tout s'est bien passé*/
 }
 
