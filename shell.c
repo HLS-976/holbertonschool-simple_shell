@@ -65,6 +65,13 @@ int read_and_tokenize_line(const char *delim, char **argv)
 		exit(0);
 	}
 
+	if (strncmp(lineptr, "env", 3) == 0)
+	{
+		print_env();
+		free(lineptr);
+		return (1);
+	}
+
 	if (process_line(lineptr, delim, argv) == 0)
 	{
 		free(lineptr);

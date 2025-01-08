@@ -30,4 +30,5 @@ int is_interactive(void);
 
 void handle_signal(int sig);
 
+void print_env(void);
 #endif
