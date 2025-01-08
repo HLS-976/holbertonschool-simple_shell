@@ -1,6 +1,5 @@
 #include "main.h"
 
-int _strlen(char *s);
 /**
  *find_command_in_path - find the full path  of a command
  *@command: the command to find
@@ -10,11 +9,12 @@ int _strlen(char *s);
 char *find_command_in_path(char *command)
 {
 	char *path = getenv("PATH");
-	char *path_copy = strdup(path);
+	char *path_copy;
 	char *dir;
 	char *full_path;
 	struct stat st;
 
+	path_copy = strdup(path);
 	if (!path_copy)
 	{
 		perror("Error duplicating PATH");
@@ -23,7 +23,7 @@ char *find_command_in_path(char *command)
 	dir = strtok(path_copy, ":");
 	while (dir)
 	{
-		full_path = malloc(_strlen(dir) + _strlen(command) + 2);
+		full_path = malloc(strlen(dir) + strlen(command) + 2);
 		if (!full_path)
 		{
 			perror("Error allocating memory for full path");
@@ -41,21 +41,4 @@ char *find_command_in_path(char *command)
 	}
 	free(path_copy);
 	return (NULL);
-}
-
-/**
- *_strlen - calculates the length of the string
- *@s: the string to measure
- *Return: the length of the string
- */
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-
-	return (i);
 }
