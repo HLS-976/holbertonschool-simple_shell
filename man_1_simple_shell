@@ -62,7 +62,9 @@ Prints "Hello, World" to the terminal.
 .TP
 .B \fB/exit and CTRL D\fR
 Allows to exit the simple shell.
-
+.TP
+.B \fB/CTRL C\fR
+Display ^C without exiting the simple shell.
 
 
 
