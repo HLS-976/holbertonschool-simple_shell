@@ -2,7 +2,6 @@
 
 int read_and_tokenize_line(const char *delim);
 int process_line(char *lineptr, const char *delim);
-void handle_tok(char **tokens);
 
 /**
  *main - Shell program entry point
@@ -29,7 +28,7 @@ int main(int ac, char **av)
 		{
 			printf("%s", prompt);
 			if (read_and_tokenize_line(delim) == 0)
-			break;
+				break;
 		}
 	}
 	else
@@ -111,20 +110,9 @@ int process_line(char *lineptr, const char *delim)
 		return (0); /*Continuer la boucle*/
 	}
 
-	handle_tok(tokens);
+	execution(tokens);
 
+	free(tokens);
 	free(line_copy);
 	return (1); /*Ligne traitée*/
-}
-
-/**
- * handle_tok - Handles the tokens, checks for the exit command
- * @tokens: The array of tokens to handle
- */
-
-/* Fonction pour gérer les tokens */
-void handle_tok(char **tokens)
-{
-	execution(tokens);
-	free(tokens);
 }
