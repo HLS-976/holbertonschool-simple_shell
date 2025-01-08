@@ -16,7 +16,7 @@ char **tokenize_line(char *line, const char *delim, int token_count);
 
 int count_tokens(const char *line, const char *delim);
 
-int execution(char *argv[]);
+int execution(char *array[], char **argv);
 
 int is_interactive(void);
 

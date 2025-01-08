@@ -1,7 +1,7 @@
 #include "main.h"
 
-int read_and_tokenize_line(const char *delim);
-int process_line(char *lineptr, const char *delim);
+int read_and_tokenize_line(const char *delim, char **argv);
+int process_line(char *lineptr, const char *delim, char **argv);
 
 /**
  *main - Shell program entry point
@@ -11,13 +11,12 @@ int process_line(char *lineptr, const char *delim);
  */
 
 /* Point d'entrée principal du programme */
-int main(int ac, char **av)
+int main(int ac, char **argv)
 {
 	const char *prompt = "(shell)-$ ";
 	const char *delim = " \t\n";
 
 	(void)ac;
-	(void)av;
 
 	signal(SIGINT, SIG_IGN);
 	signal(SIGTSTP, SIG_IGN);
@@ -27,13 +26,13 @@ int main(int ac, char **av)
 		while (1)
 		{
 			printf("%s", prompt);
-			if (read_and_tokenize_line(delim) == 0)
+			if (read_and_tokenize_line(delim, argv) == 0)
 				break;
 		}
 	}
 	else
 	{
-		read_and_tokenize_line(delim);
+		read_and_tokenize_line(delim, argv);
 	}
 
 	return (0);
@@ -44,7 +43,7 @@ int main(int ac, char **av)
  * Return: always 0
  */
 /* Fonction pour lire et tokeniser la ligne d'entrée */
-int read_and_tokenize_line(const char *delim)
+int read_and_tokenize_line(const char *delim, char **argv)
 {
 	char *lineptr = NULL;
 	size_t n = 0;
@@ -65,7 +64,7 @@ int read_and_tokenize_line(const char *delim)
 		exit(0);
 	}
 
-	if (process_line(lineptr, delim) == 0)
+	if (process_line(lineptr, delim, argv) == 0)
 	{
 		free(lineptr);
 		return (1);
@@ -82,7 +81,7 @@ int read_and_tokenize_line(const char *delim)
  */
 
 /*Fonction pour traiter la ligne lue*/
-int process_line(char *lineptr, const char *delim)
+int process_line(char *lineptr, const char *delim, char **argv)
 {
 	int token_count;
 	char *line_copy;
@@ -110,7 +109,7 @@ int process_line(char *lineptr, const char *delim)
 		return (0); /*Continuer la boucle*/
 	}
 
-	execution(tokens);
+	execution(tokens, argv);
 
 	free(tokens);
 	free(line_copy);
