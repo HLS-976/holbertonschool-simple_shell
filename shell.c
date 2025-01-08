@@ -2,7 +2,7 @@
 
 int read_and_tokenize_line(const char *delim);
 int process_line(char *lineptr, const char *delim);
-void handle_tok(char **tokens, char *line_copy);
+void handle_tok(char **tokens);
 
 /**
  *main - Shell program entry point
@@ -58,6 +58,12 @@ int read_and_tokenize_line(const char *delim)
 		return (0);
 	}
 
+	if (strncmp(lineptr, "exit", 4) == 0)
+	{
+		free(lineptr);
+		exit(0);
+	}
+
 	if (process_line(lineptr, delim) == 0)
 	{
 		free(lineptr);
@@ -97,14 +103,15 @@ int process_line(char *lineptr, const char *delim)
 	}
 
 	tokens = tokenize_line(line_copy, delim, token_count);
-
 	if (!tokens)
 	{
 		free(line_copy);
 		return (0); /*Continuer la boucle*/
 	}
 
-	handle_tok(tokens, line_copy);
+	handle_tok(tokens);
+
+	free(line_copy);
 	return (1); /*Ligne traitée*/
 }
 
@@ -115,18 +122,10 @@ int process_line(char *lineptr, const char *delim)
  */
 
 /* Fonction pour gérer les tokens */
-void handle_tok(char **tokens, char *line_copy)
+void handle_tok(char **tokens)
 {
-	if (child_exit(tokens, line_copy, 0) == 0)
-	{
-		exit(0); /*Quitter le programme si la commande est "exit"*/
-	}
-
-
 	execution(tokens);
-
 	free(tokens);
-	free(line_copy);
 
 }
 
