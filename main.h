@@ -12,6 +12,8 @@
 #include <sys/stat.h>
 /* Prototypes */
 
+extern char **environ;
+
 char **tokenize_line(char *line, const char *delim, int token_count);
 
 int count_tokens(const char *line, const char *delim);

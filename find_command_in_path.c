@@ -8,7 +8,7 @@
 
 char *find_command_in_path(char *command)
 {
-	char *path = getenv("PATH");
+	char *path = _getenv("PATH");
 	char *path_copy;
 	char *dir;
 	char *full_path;
