@@ -4,6 +4,7 @@ char *check_command(char *array[]);
 
 /**
  * execution - Creates a child process to execute a program
+ * @array: Array of strings containing the command and its arguments
  * @argv: Array of strings containing the program name and its arguments
  * Return: The exit code of the executed program, or -1 on error
  */
@@ -56,8 +57,8 @@ int execution(char *array[], char **argv)
 }
 
 /**
- * check_command - checks if a command id executable
- * @argv: Array of strings representing the command and its arguments
+ * check_command - Checks if a command id executable
+ * @array: Array of strings representing the command and its arguments
  * Return: The command itself if it is executable, or the full path
  * of the command found in PATH. Returns NULL if the command is not found.
  */

@@ -14,6 +14,8 @@
 
 extern char **environ;
 
+char *_getenv(const char *name);
+
 char **tokenize_line(char *line, const char *delim, int token_count);
 
 int count_tokens(const char *line, const char *delim);

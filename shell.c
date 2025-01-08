@@ -5,9 +5,9 @@ int process_line(char *lineptr, const char *delim, char **argv);
 
 /**
  *main - Shell program entry point
- *@ac: number of arguments
- *@av: array of argument strings
- *Return: always 0
+ *@ac: Number of arguments
+ *@argv: Array of argument strings
+ *Return: Always 0
  */
 
 /* Point d'entrée principal du programme */
@@ -40,6 +40,7 @@ int main(int ac, char **argv)
 /**
  * read_and_tokenize_line - Reads an input line
  * @delim: The delimiters used to tokenize the input
+ * @argv: Array of argument strings
  * Return: always 0
  */
 /* Fonction pour lire et tokeniser la ligne d'entrée */
@@ -77,6 +78,7 @@ int read_and_tokenize_line(const char *delim, char **argv)
  * process_line - Processes the input line by counting tokens
  * @lineptr: The input line to process
  * @delim: The delimiters used to tokenize the input
+ * @argv : Array of argument strings
  * Return: 1 if the line is processed successfully, 0 otherwise
  */
 
