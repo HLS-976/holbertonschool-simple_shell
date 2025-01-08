@@ -6,6 +6,8 @@ void handle_tok(char **tokens);
 
 /**
  *main - Shell program entry point
+ *@ac: number of arguments
+ *@av: array of argument strings
  *Return: always 0
  */
 
@@ -118,7 +120,6 @@ int process_line(char *lineptr, const char *delim)
 /**
  * handle_tok - Handles the tokens, checks for the exit command
  * @tokens: The array of tokens to handle
- * @line_copy: A duplicated copy of the input line
  */
 
 /* Fonction pour gérer les tokens */
