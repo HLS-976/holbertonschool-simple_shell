@@ -18,7 +18,7 @@ int execution(char *array[], char **argv)
 	if (!command)
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], array[0]);
-		return (127);
+		return (-1);
 	}
 	pid = fork();/*Crée un processus fils*/
 	if (pid < 0) /*Erreur lors du fork*/
