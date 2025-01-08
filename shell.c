@@ -62,7 +62,7 @@ int read_and_tokenize_line(const char *delim, char **argv)
 	if (strncmp(lineptr, "exit", 4) == 0)
 	{
 		free(lineptr);
-		exit();
+		exit(0);
 	}
 
 	if (process_line(lineptr, delim, argv) == 0)
