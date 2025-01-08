@@ -2,7 +2,7 @@
 
 int read_and_tokenize_line(const char *delim);
 int process_line(char *lineptr, const char *delim);
-void handle_tok(char **tokens, char *line_copy, char *lineptr);
+void handle_tok(char **tokens, char *line_copy);
 
 /**
  *main - Shell program entry point
@@ -98,7 +98,7 @@ int process_line(char *lineptr, const char *delim)
 		return (0); /*Continuer la boucle*/
 	}
 
-	handle_tok(tokens, line_copy, lineptr);
+	handle_tok(tokens, line_copy);
 	return (1); /*Ligne traitée*/
 }
 
@@ -106,22 +106,19 @@ int process_line(char *lineptr, const char *delim)
  * handle_tok - Handles the tokens, checks for the exit command
  * @tokens: The array of tokens to handle
  * @line_copy: A duplicated copy of the input line
- * @lineptr: The original input line
  */
 
 /* Fonction pour gérer les tokens */
-void handle_tok(char **tokens, char *line_copy, char *lineptr)
+void handle_tok(char **tokens, char *line_copy)
 {
-	if (child_exit(tokens, line_copy, lineptr, 0) == 0)
+	if (child_exit(tokens, line_copy, 0) == 0)
 	{
 		exit(0); /*Quitter le programme si la commande est "exit"*/
 	}
-
 
 	execution(tokens);
 
 	free(tokens);
 	free(line_copy);
-
 }
 
