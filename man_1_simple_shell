@@ -34,8 +34,8 @@ The shell supports the following commands:
 
 .SH Compilation
 .PP
-gcc execution.c count_tokens.c read_line.c tokenize_line.c shell.c main.h -o hsh
-and ./hsh and the prompt becomes (shell)-$ 
+gcc execution.c count_tokens.c read_line.c tokenize_line.c shell.c main.h -o simple_shell
+and ./simple_shell  and the prompt becomes (shell)-$ 
 
 .TP 
 .B External commands 
@@ -65,22 +65,6 @@ Allows to exit the simple shell.
 .TP
 .B \fB/CTRL C\fR
 Display ^C without exiting the simple shell.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .SH AUTHOR
