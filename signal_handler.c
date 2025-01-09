@@ -10,8 +10,4 @@ void handle_signal(int sig)
 	{
 		fflush(stdout);
 	}
-	/*else if (sig == SIGTSTP)
-	{
-		fflush(stdout);
-	}*/
 }

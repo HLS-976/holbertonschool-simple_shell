@@ -6,6 +6,7 @@ char *check_command(char *array[]);
  * execution - Creates a child process to execute a program
  * @array: Array of strings containing the command and its arguments
  * @argv: Array of strings containing the program name and its arguments
+ * @exit_code: Status of output code
  * Return: The exit code of the executed program, or -1 on error
  */
 
