@@ -19,7 +19,7 @@ int execution(char *array[], char **argv, int *exit_code)
 	command = check_command(array);
 	if (!command)
 	{
-		*exit_code = 127;
+		*exit_code = 2;
 		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], array[0]);
 		return (0);
 	}
@@ -68,9 +68,12 @@ char *check_command(char *array[])
 {
 	char *command;
 
-	if (access(array[0], X_OK) == 0)
+	if (strchr(array[0], '/'))
 	{
-		command = strdup(array[0]);
+		if (access(array[0], X_OK) == 0)
+		{
+			command = strdup(array[0]);
+		}
 	}
 	else
 	{
