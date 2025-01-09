@@ -67,12 +67,9 @@ char *check_command(char *array[])
 {
 	char *command;
 
-	if (strchr(array[0], '/'))
+	if (access(array[0], X_OK) == 0)
 	{
-		if (access(array[0], X_OK) == 0)
-		{
-			command = strdup(array[0]);
-		}
+		command = strdup(array[0]);
 	}
 	else
 	{
