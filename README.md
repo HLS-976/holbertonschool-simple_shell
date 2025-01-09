@@ -29,7 +29,7 @@ This simple shell project was made as part of a training to create a command int
 - Use system calls only when you need to (why?)
 - Function prototypes are in the header file main.h
 
-## Fonctionnalités
+## Features
 
 - Simple command execution
 - Path management
@@ -39,7 +39,7 @@ This simple shell project was made as part of a training to create a command int
 ### Flowchart
 ![Flowchart](https://i.imgur.com/QLS4qHH.png)
 
-## Installation
+## Facility
 
 To install and configure the project, follow the steps below:
 
@@ -103,7 +103,7 @@ To compile the shell, use the following command:
 
 ## Use man in shell
 
-### `man simple_shell`
+### `man_1_simple_shell`
 
 ## Bugs
 
@@ -115,7 +115,7 @@ To compile the shell, use the following command:
 
 ![](https://flat-badgen.vercel.app/badge/icon/github?icon=github&label)
 
--  Hilliass Soumahill[@HLS-976](https://github.com/HLS-976/holbertonschool-simple_shell)
+- Hilliass Soumahill[@HLS-976](https://github.com/HLS-976/holbertonschool-simple_shell)
 
 - David Tolza [@VidadTol](https://www.github.com/VidadTol)
 
