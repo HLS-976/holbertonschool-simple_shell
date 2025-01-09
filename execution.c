@@ -9,7 +9,7 @@ char *check_command(char *array[]);
  * Return: The exit code of the executed program, or -1 on error
  */
 
-int execution(char *array[], char **argv)
+int execution(char *array[], char **argv, int *exit_code)
 {
 	pid_t pid;
 	int status;
@@ -18,8 +18,9 @@ int execution(char *array[], char **argv)
 	command = check_command(array);
 	if (!command)
 	{
+		*exit_code = 127;
 		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], array[0]);
-		return (-1);
+		return (0);
 	}
 	pid = fork();/*Crée un processus fils*/
 	if (pid < 0) /*Erreur lors du fork*/

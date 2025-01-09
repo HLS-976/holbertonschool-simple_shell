@@ -8,12 +8,10 @@ void handle_signal(int sig)
 {
 	if (sig == SIGINT)
 	{
-		printf("\n");
 		fflush(stdout);
 	}
-	else if (sig == SIGTSTP)
+	/*else if (sig == SIGTSTP)
 	{
-		printf("\nShell stopped. Type 'fg' to resume.\n");
 		fflush(stdout);
-	}
+	}*/
 }
