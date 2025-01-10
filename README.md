@@ -30,7 +30,7 @@ The simple shell is a customized and minimalist version that mimics the behavior
 ### 👀 Flowchart
 ![Flowchart](https://i.imgur.com/lNtw06X.png)
 
-## ⌨️ Installation and run
+## ⚙️  Installation and run
 
 To install and configure the project, follow the steps below:
 
