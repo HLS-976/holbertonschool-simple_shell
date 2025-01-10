@@ -8,9 +8,6 @@
  * Return: an array of pointers to the token, or NULL on error
  */
 
-
-/* Fonction pour extraire les tokens et les stocker dans un tableau dynamique*/
-
 char **tokenize_line(char *line, const char *delim, int token_count)
 {
 	char **tokens;
