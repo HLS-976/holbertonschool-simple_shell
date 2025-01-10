@@ -30,7 +30,7 @@ The simple shell is a customized and minimalist version that mimics the behavior
 ### 👀 Flowchart
 ![Flowchart](https://i.imgur.com/lNtw06X.png)
 
-## Facility
+## ⌨️ Installation and run
 
 To install and configure the project, follow the steps below:
 
@@ -38,19 +38,15 @@ To install and configure the project, follow the steps below:
 
     `git clone https://github.com/HLS-976/holbertonschool-simple_shell.git`
 
-2. Change to the project directory:
+2. Compile the project:
 
-    `ls holbertonschool-simple_shell`
+    `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o dsh`
 
-3. Compile the project:
+3. Run the shell:
+    - Interactive mode : `./dsh`
+    - Non-interactive mode : `echo "...." | ./dsh` 
 
-    `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell`
-
-4. Run the shell:
-
-    `./simple_shell`
-
-## Features
+## 💻 Demonstration
 
 - Simple command execution like :
 
@@ -111,12 +107,6 @@ root@Vidad:~/holbertonschool-simple_shell# ./dsh
 ==2630== For lists of detected and suppressed errors, rerun with: -s
 ==2630== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ```
-
-## Compilation
-
-To compile the shell, use the following command:
-
-### `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o dsh`
 
 ## Use man in shell
 
