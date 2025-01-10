@@ -109,8 +109,9 @@ root@Vidad:~/holbertonschool-simple_shell# ./dsh
 ```
 
 ## Use man in shell
-
-### [👉 man_1_simple_shell](https://github.com/HLS-976/holbertonschool-simple_shell/blob/main/man_1_simple_shell)
+*To run the man page on the terminal* - `man ./man_1_simple_shell`
+ 
+### Overview [👉 man_1_simple_shell](https://github.com/HLS-976/holbertonschool-simple_shell/blob/main/man_1_simple_shell)
 
 ## Bugs
 
