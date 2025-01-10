@@ -131,4 +131,7 @@ root@Vidad:~/holbertonschool-simple_shell# ./dsh
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-![logo](https://i.imgur.com/J1oVLId.jpeg)
+<p align="center">
+  <img src="https://i.imgur.com/J1oVLId.jpeg" />
+</p>
+
