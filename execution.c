@@ -6,6 +6,7 @@ char *check_command(char *array[]);
  * execution - Creates a child process to execute a program
  * @array: Array of strings containing the command and its arguments
  * @argv: Array of strings containing the program name and its arguments
+ * @exit_code: Status of output code
  * Return: The exit code of the executed program, or -1 on error
  */
 
@@ -45,8 +46,8 @@ void execution(char *array[], char **argv, int *exit_code)
 			perror("Erreur lors de l'attente du processus fils");
 			*exit_code = 1;
 		}
-		else if (WIFEXITED(status) && WEXITSTATUS(status) == 1)/*Vérifie si le fils s'est terminé normalement*/
-		{	
+		else if (WIFEXITED(status) && WEXITSTATUS(status) == 1)
+		{
 			*exit_code = 2;
 		}
 		else

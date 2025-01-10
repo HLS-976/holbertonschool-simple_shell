@@ -1,7 +1,8 @@
 #include "main.h"
 
 int read_and_tokenize_line(const char *delim, char **argv, int *exit_code);
-int process_line(char *lineptr, const char *delim, char **argv, int *exit_code);
+int process_line(char *lineptr, const char *delim,
+		char **argv, int *exit_code);
 
 /**
  *main - Shell program entry point
@@ -9,7 +10,6 @@ int process_line(char *lineptr, const char *delim, char **argv, int *exit_code);
  *@argv: Array of argument strings
  *Return: Always 0
  */
-
 /* Point d'entrée principal du programme */
 int main(int ac, char **argv)
 {
@@ -43,6 +43,7 @@ int main(int ac, char **argv)
  * read_and_tokenize_line - Reads an input line
  * @delim: The delimiters used to tokenize the input
  * @argv: Array of argument strings
+ * @exit_code: Status of output code
  * Return: always 0
  */
 /* Fonction pour lire et tokeniser la ligne d'entrée */
@@ -82,15 +83,14 @@ int read_and_tokenize_line(const char *delim, char **argv, int *exit_code)
 	free(lineptr);
 	return (1);
 }
-
 /**
  * process_line - Processes the input line by counting tokens
  * @lineptr: The input line to process
  * @delim: The delimiters used to tokenize the input
  * @argv : Array of argument strings
+ * @exit_code: Status of output code
  * Return: 1 if the line is processed successfully, 0 otherwise
  */
-
 /*Fonction pour traiter la ligne lue*/
 int process_line(char *lineptr, const char *delim, char **argv, int *exit_code)
 {

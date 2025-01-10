@@ -1,19 +1,16 @@
 
 
 ![logo](https://i.imgur.com/02Avpeu.png)
-
-## Synopsis ✏️
-
-A shell is a program that acts as an interface between the user and the operating system.
-
-## Description 
-
-A shell allows the user to interact with the operating system by accepting commands entered by the user from the keyboard, checking whether the user's input is correct, and executing it.
-
-## Introduction
-
-This simple shell project was made as part of a training to create a command interpreter that mimics the operation of a Unix shell. The shell allows you to execute commands entered by the user, manage processes and interact with the operating system.
     
+## ∭ Synopsis
+This simple shell project was made as part of a Holberton School project to create a command interpreter that mimics the behavior of a Unix shell.
+
+## 📝 Description
+What is a shell?
+
+A shell allows the user to interact with the operating system by accepting commands entered by the user from the keyboard, checking if the user's input is correct, and executing it.
+The simple shell is a customized and minimalist version that mimics the behavior of the Unix shell.
+
 ## Requirements
 
 ### *General*
@@ -29,17 +26,11 @@ This simple shell project was made as part of a training to create a command int
 - Use system calls only when you need to (why?)
 - Function prototypes are in the header file main.h
 
-## Fonctionnalités
 
-- Simple command execution
-- Path management
-- Built-in commands: ls, ls -l, pwd, exit, CTRL D,
-- Input/output redirection
+### 👀 Flowchart
+![Flowchart](https://i.imgur.com/lNtw06X.png)
 
-### Flowchart
-![Flowchart](https://i.imgur.com/QLS4qHH.png)
-
-## Installation
+## ⌨️ Installation and run
 
 To install and configure the project, follow the steps below:
 
@@ -47,43 +38,65 @@ To install and configure the project, follow the steps below:
 
     `git clone https://github.com/HLS-976/holbertonschool-simple_shell.git`
 
-2. Change to the project directory:
+2. Compile the project:
 
-    `ls holbertonschool-simple_shell`
+    `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o dsh`
 
-3. Compile the project:
+3. Run the shell:
+    - Interactive mode : `./dsh`
+    - Non-interactive mode : `echo "...." | ./dsh` 
 
-    `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell`
+## ⌨️  Usage
 
-4. Run the shell:
+- Simple command execution like :
 
-    `./simple_shell`
+| Commands                   | Description                                      | 
+| :--------                  | :----------------------------------------        |
+| `/bin/ls or ls`            |  *List the contents of curent directory*         |
+| `/bin/pwd or pwd`          |  *Display the absolute path of current directory*|
+| `CTRL+C`                   |  *Does not interrupt the simple shell*           |
+| `exit or CTRL+D`           |  *Stop and exit the program*                     |
+| `arguments`                |  *Command arguments to customize search results* |
+
+`Input/output redirection` *handles non-interactive and interactive mode* 
 
 
-## Demonstrations /bin/ls -l, ls, pwd, exit, valgrind,
+## 💻 Demonstrations 
 ```
-(shell)-$/bin/ls -l
-total 60
--rw-r--r-- 1 root root   140 Dec 26 11:45 AUTHORS
--rw-r--r-- 1 root root  3030 Dec 26 11:45 README.md
--rw-r--r-- 1 root root   429 Dec 26 15:46 child_exit.c
--rw-r--r-- 1 root root   613 Dec 20 15:05 count_tokens.c
--rw-r--r-- 1 root root  1424 Dec 26 12:02 execution.c
--rw-r--r-- 1 root root   520 Dec 26 15:47 main.h
--rw-r--r-- 1 root root  2136 Dec 26 11:45 man_1_simple_shell
--rw-r--r-- 1 root root   540 Dec 20 15:05 read_line.c
--rw-r--r-- 1 root root   900 Dec 26 16:27 shell.c
--rwxr-xr-x 1 root root 16888 Dec 26 16:31 test
--rw-r--r-- 1 root root   742 Dec 20 15:05 tokenize_line.c
+(shell)-$ /bin/ls -l
+total 72
+-rw-r--r-- 1 root root   160 Jan  9 16:21 AUTHORS
+-rw-r--r-- 1 root root  3858 Jan 10 11:20 README.md
+-rw-r--r-- 1 root root   533 Jan  8 16:35 _getenv.c
+-rw-r--r-- 1 root root   621 Dec 27 16:15 count_tokens.c
+-rwxr-xr-x 1 root root 17832 Jan 10 12:23 dsh
+-rw-r--r-- 1 root root  1899 Jan 10 11:25 execution.c
+-rw-r--r-- 1 root root   856 Jan  8 16:35 find_command_in_path.c
+-rw-r--r-- 1 root root   217 Jan  8 09:19 is_interactive.c
+-rw-r--r-- 1 root root   625 Jan 10 11:21 main.h
+-rw-r--r-- 1 root root  2240 Jan  9 16:19 man_1_simple_shell
+-rw-r--r-- 1 root root   205 Jan  9 16:19 print_env.c
+-rw-r--r-- 1 root root  2545 Jan  9 16:32 shell.c
+-rw-r--r-- 1 root root   189 Jan  9 16:32 signal_handler.c
+-rw-r--r-- 1 root root   873 Jan  8 09:19 tokenize_line.c
 
-(shell)-$/bin/ls
-AUTHORS    child_exit.c    execution.c  man_1_simple_shell  shell.c  tokenize_line.c
-README.md  count_tokens.c  main.h       read_line.c         test
+(shell)-$ ls
+AUTHORS    _getenv.c       dsh          find_command_in_path.c  main.h              print_env.c  signal_handler.c
+README.md  count_tokens.c  execution.c  is_interactive.c        man_1_simple_shell  shell.c      tokenize_line.c
 
 (shell)-$/bin/pwd
 /root/holbertonschool-simple_shell
 
-(shell)-$exit
+root@Vidad:~/holbertonschool-simple_shell# ./dsh
+(shell)-$ ^C
+(shell)-$ exit
+
+(shell)-$ exit
+```
+
+### This code has been verified using Valgrind (*Valgrind checks for possible memory leaks*)
+### `valgrind ./dsh`
+```
 ==2630==
 ==2630== HEAP SUMMARY:
 ==2630==     in use at exit: 0 bytes in 0 blocks
@@ -95,27 +108,22 @@ README.md  count_tokens.c  main.h       read_line.c         test
 ==2630== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ```
 
-## Compilation
-
-To compile the shell, use the following command:
-
-### `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell`
-
 ## Use man in shell
-
-### `man simple_shell`
+*To run the man page on the terminal* - `man ./man_1_simple_shell`
+ 
+### Overview [👉 man_1_simple_shell](https://github.com/HLS-976/holbertonschool-simple_shell/blob/main/man_1_simple_shell)
 
 ## Bugs
 
 ### *No known bugs exists within the program as of this writing*
 
-- If you encounter any bugs or issues, please report them via l'[issue tracker](https://github.com/HLS-976/holbertonschool-simple_shell)
+- If you encounter any bugs or issues, please report them via l'[issue tracker](https://github.com/HLS-976/holbertonschool-simple_shell/issues)
 
 ## Project carried out by
 
 ![](https://flat-badgen.vercel.app/badge/icon/github?icon=github&label)
 
--  Hilliass Soumahill[@HLS-976](https://github.com/HLS-976/holbertonschool-simple_shell)
+- Hilliass Soumahill [@HLS-976](https://github.com/HLS-976/holbertonschool-simple_shell)
 
 - David Tolza [@VidadTol](https://www.github.com/VidadTol)
 
@@ -123,7 +131,4 @@ To compile the shell, use the following command:
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-```html
 ![logo](https://i.imgur.com/J1oVLId.jpeg)
-```
-
