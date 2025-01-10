@@ -9,5 +9,6 @@
 
 int is_interactive(void)
 {
+	/* checks if the standard input is an interactive terminal */
 	return (isatty(STDIN_FILENO));
 }
