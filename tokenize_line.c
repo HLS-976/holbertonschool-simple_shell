@@ -14,7 +14,8 @@ char **tokenize_line(char *line, const char *delim, int token_count)
 	int i = 0;
 	char *token;
 
-	tokens = malloc((token_count + 1) * sizeof(char *)); /* Allocates a dynamicly memory */
+	/* Allocates dynamicly memory */
+	tokens = malloc((token_count + 1) * sizeof(char *));
 	if (!tokens)
 	{
 		perror("Error allocating memory for tokens");
@@ -23,7 +24,8 @@ char **tokenize_line(char *line, const char *delim, int token_count)
 
 	i = 0;
 
-	token = strtok(line, delim); /* Divide the line input according to the delimiter */
+	/* Divide the line input according to the delimiter */
+	token = strtok(line, delim);
 
 	while (token)
 	{

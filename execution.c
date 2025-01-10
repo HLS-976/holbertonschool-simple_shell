@@ -9,7 +9,6 @@ char *check_command(char *array[]);
  * @exit_code: Status of output code
  * Return: The exit code of the executed program, or -1 on error
  */
-
 void execution(char *array[], char **argv, int *exit_code)
 {
 	pid_t pid;
@@ -32,7 +31,8 @@ void execution(char *array[], char **argv, int *exit_code)
 	}
 	else if (pid == 0) /* Performs the execution if the fork has worked*/
 	{
-		if (execve(command, array, NULL) == -1)/* Performs the command in child process */
+		/* Performs the command in child process */
+		if (execve(command, array, NULL) == -1)
 		{
 			perror("ERREUR");
 			free(command);
@@ -57,7 +57,6 @@ void execution(char *array[], char **argv, int *exit_code)
 	}
 
 	free(command);
-	return;
 }
 
 /**

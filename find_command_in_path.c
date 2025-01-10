@@ -5,7 +5,6 @@
  *@command: the command to find
  *Return: full path of the command if found, NULL otherwise
  */
-
 char *find_command_in_path(char *command)
 {
 	char *path = _getenv("PATH"); /* Gets the PATH environment variable */
@@ -33,7 +32,8 @@ char *find_command_in_path(char *command)
 		}
 		/* Associates the command given with tokens of dir to build a new path */
 		sprintf(full_path, "%s/%s", dir, command);
-		if (stat(full_path, &st) == 0) /* Checks if the new path exist and is executable */
+		/* Checks if the new path exist and is executable */
+		if (stat(full_path, &st) == 0)
 		{
 			free(path_copy);
 			return (full_path); /* Returns the new path */

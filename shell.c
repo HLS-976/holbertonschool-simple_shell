@@ -10,7 +10,6 @@ int process_line(char *lineptr, const char *delim,
  *@argv: Array of argument strings
  *Return: Always 0
  */
-/* Point d'entrée principal du programme */
 int main(int ac, char **argv)
 {
 	const char *prompt = "(shell)-$ ";
@@ -92,7 +91,6 @@ int read_and_tokenize_line(const char *delim, char **argv, int *exit_code)
  * @exit_code: Status of output code
  * Return: 1 if the line is processed successfully, 0 otherwise
  */
-/*Fonction pour traiter la ligne lue*/
 int process_line(char *lineptr, const char *delim, char **argv, int *exit_code)
 {
 	int token_count;
@@ -113,7 +111,7 @@ int process_line(char *lineptr, const char *delim, char **argv, int *exit_code)
 		perror("Error duplicating line");
 		return (-1);
 	}
-	
+
 	/* Performs the divide of line copy */
 	tokens = tokenize_line(line_copy, delim, token_count);
 	if (!tokens)

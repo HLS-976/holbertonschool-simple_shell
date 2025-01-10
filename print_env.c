@@ -9,7 +9,7 @@ void print_env(void)
 {
 	char **env;
 
-	/* iterates through the environ array and print each element of this */
+	/* Iterates through the environ array and print each element of this */
 	for (env = environ; *env != NULL; env++)
 		printf("%s\n", *env);
 }

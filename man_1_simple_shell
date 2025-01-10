@@ -32,32 +32,32 @@ When executing interactively, the simple_shell displays the prompt \fB"(shell)-$
 .SH Compilation
 .PP
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o dsh
-and ./dsh  and the prompt becomes (shell)-$ 
+and ./dsh  and the prompt becomes (shell)-$
 
 .SH COMMANDS
 The shell supports the following commands:
 
-.TP 
-.B External commands 
-Execute any external commands available in the system's PATH. 
-.PP 
-EXAMPLES 
-.PP 
-Here are some examples of how to use the \fBsimple_shell\fR: 
-.TP 
-.B \fB/bin/ls\fR 
-Lists files in the current directory. 
-.TP 
-.B \fB/bin/ls -l\fR 
-Lists files in the current directory in long format. 
-.TP 
-.B \fB/bin/ls -la\fR 
-Lists all files (including hidden ones) in the current directory in long format. 
-.TP 
-.B \fB/bin/pwd\fR 
-Prints the current working directory. 
-.TP 
-.B \fB/bin/echo "Hello, World"\fR 
+.TP
+.B External commands
+Execute any external commands available in the system's PATH.
+.PP
+EXAMPLES
+.PP
+Here are some examples of how to use the \fBsimple_shell\fR:
+.TP
+.B \fB/bin/ls\fR
+Lists files in the current directory.
+.TP
+.B \fB/bin/ls -l\fR
+Lists files in the current directory in long format.
+.TP
+.B \fB/bin/ls -la\fR
+Lists all files (including hidden ones) in the current directory in long format.
+.TP
+.B \fB/bin/pwd\fR
+Prints the current working directory.
+.TP
+.B \fB/bin/echo "Hello, World"\fR
 Prints "Hello, World" to the terminal.
 .TP
 .B \fB/exit and CTRL D\fR
