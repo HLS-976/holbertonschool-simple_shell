@@ -54,7 +54,7 @@ int read_and_tokenize_line(const char *delim, char **argv, int *exit_code)
 
 	nread = getline(&lineptr, &n, stdin);
 
-	if (nread == EOF)
+	if (nread == -1)
 	{
 		printf("\n");
 		free(lineptr);

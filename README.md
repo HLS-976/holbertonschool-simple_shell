@@ -123,6 +123,7 @@ To compile the shell, use the following command:
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
+```html
 ![logo](https://i.imgur.com/J1oVLId.jpeg)
-
+```
 
