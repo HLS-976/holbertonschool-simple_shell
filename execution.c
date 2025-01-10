@@ -9,7 +9,7 @@ char *check_command(char *array[]);
  * Return: The exit code of the executed program, or -1 on error
  */
 
-int execution(char *array[], char **argv, int *exit_code)
+void execution(char *array[], char **argv, int *exit_code)
 {
 	pid_t pid;
 	int status;
@@ -20,14 +20,14 @@ int execution(char *array[], char **argv, int *exit_code)
 	{
 		*exit_code = 127;
 		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], array[0]);
-		return (0);
+		return;
 	}
 	pid = fork();/*Crée un processus fils*/
 	if (pid < 0) /*Erreur lors du fork*/
 	{
 		perror("Erreur lors de la création du processus");
 		free(command);
-		return (-1);/*Retourne une erreur*/
+		return;/*Retourne une erreur*/
 	}
 	else if (pid == 0) /*Code exécuté dans le fils*/
 	{
@@ -43,18 +43,20 @@ int execution(char *array[], char **argv, int *exit_code)
 		if (wait(&status) == -1)/*Attend la fin du fils*/
 		{
 			perror("Erreur lors de l'attente du processus fils");
-			free(command);
-			return (-1);/*Retourne une erreur*/
+			*exit_code = 1;
 		}
-		if (WIFEXITED(status))/*Vérifie si le fils s'est terminé normalement*/
+		else if (WIFEXITED(status) && WEXITSTATUS(status) == 1)/*Vérifie si le fils s'est terminé normalement*/
+		{	
+			*exit_code = 2;
+		}
+		else
 		{
-			free(command);
-			return (WEXITSTATUS(status));/*Retourne le code de sortie du fils*/
+			*exit_code = WEXITSTATUS(status);
 		}
 	}
 
 	free(command);
-	return (0);/*Retourne 0 si tout s'est bien passé*/
+	return;/*Retourne 0 si tout s'est bien passé*/
 }
 
 /**
