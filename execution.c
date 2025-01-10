@@ -18,7 +18,7 @@ int execution(char *array[], char **argv, int *exit_code)
 	command = check_command(array);
 	if (!command)
 	{
-		*exit_code = 2;
+		*exit_code = 127;
 		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], array[0]);
 		return (0);
 	}
