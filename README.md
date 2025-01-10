@@ -37,7 +37,7 @@ This simple shell project was made as part of a training to create a command int
 - Input/output redirection
 
 ### Flowchart
-![Flowchart](https://i.imgur.com/QLS4qHH.png)
+![Flowchart](https://i.imgur.com/kMZNeRG.png)
 
 ## Facility
 
