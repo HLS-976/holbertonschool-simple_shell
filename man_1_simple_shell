@@ -66,7 +66,6 @@ Allows to exit the simple shell.
 .B \fB/CTRL C\fR
 Display ^C without exiting the simple shell.
 
-
 .SH AUTHOR
 .PP
 This \fBsimple_shell\fP and man page were created by [Hilliass, David].

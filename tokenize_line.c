@@ -14,6 +14,7 @@ char **tokenize_line(char *line, const char *delim, int token_count)
 	int i = 0;
 	char *token;
 
+	/* Allocates dynamicly memory */
 	tokens = malloc((token_count + 1) * sizeof(char *));
 	if (!tokens)
 	{
@@ -23,16 +24,17 @@ char **tokenize_line(char *line, const char *delim, int token_count)
 
 	i = 0;
 
+	/* Divide the line input according to the delimiter */
 	token = strtok(line, delim);
 
 	while (token)
 	{
 		tokens[i++] = token;
-		if (!tokens[i - 1])
+		if (!tokens[i - 1]) /* Checks if the last tokens is null */
 		{
-			while (--i >= 0)
+			while (--i >= 0) /* frees each token */
 				free(tokens[i]);
-			free(tokens);
+			free(tokens); /* frees the tokens array */
 			return (NULL);
 		}
 		token = strtok(NULL, delim);

@@ -1,7 +1,7 @@
 
 
 ![logo](https://i.imgur.com/02Avpeu.png)
-    
+
 ## ∭ Synopsis
 This simple shell project was made as part of a Holberton School project to create a command interpreter that mimics the behavior of a Unix shell.
 
@@ -30,7 +30,7 @@ The simple shell is a customized and minimalist version that mimics the behavior
 ### 👀 Flowchart
 ![Flowchart](https://i.imgur.com/lNtw06X.png)
 
-## ⌨️ Installation and run
+## ⚙️  Installation and run
 
 To install and configure the project, follow the steps below:
 
@@ -44,13 +44,13 @@ To install and configure the project, follow the steps below:
 
 3. Run the shell:
     - Interactive mode : `./dsh`
-    - Non-interactive mode : `echo "...." | ./dsh` 
+    - Non-interactive mode : `echo "...." | ./dsh`
 
-## 💻 Demonstration
+## ⌨️  Usage
 
 - Simple command execution like :
 
-| Commands                   | Description                                      | 
+| Commands                   | Description                                      |
 | :--------                  | :----------------------------------------        |
 | `/bin/ls or ls`            |  *List the contents of curent directory*         |
 | `/bin/pwd or pwd`          |  *Display the absolute path of current directory*|
@@ -58,10 +58,10 @@ To install and configure the project, follow the steps below:
 | `exit or CTRL+D`           |  *Stop and exit the program*                     |
 | `arguments`                |  *Command arguments to customize search results* |
 
-`Input/output redirection` *handles non-interactive and interactive mode* 
+`Input/output redirection` *handles non-interactive and interactive mode*
 
 
-## 💻Demonstrations 
+## 💻 Demonstrations
 ```
 (shell)-$ /bin/ls -l
 total 72
@@ -110,7 +110,7 @@ root@Vidad:~/holbertonschool-simple_shell# ./dsh
 
 ## Use man in shell
 *To run the man page on the terminal* - `man ./man_1_simple_shell`
- 
+
 ### Overview [👉 man_1_simple_shell](https://github.com/HLS-976/holbertonschool-simple_shell/blob/main/man_1_simple_shell)
 
 ## Bugs
@@ -129,7 +129,9 @@ root@Vidad:~/holbertonschool-simple_shell# ./dsh
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+<p align="center">This project is licensed under the MIT License. See the LICENSE file for more details.</p>
 
-![logo](https://i.imgur.com/J1oVLId.jpeg)
+<p align="center">
+  <img src="https://i.imgur.com/J1oVLId.jpeg" name="logo Holberton"/>
+</p>
 
