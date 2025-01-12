@@ -7,7 +7,7 @@
 void handle_signal(int sig)
 {
 	if (sig == SIGINT)
-	{
+	{ /* Ignore the CTRL+C command */
 		fflush(stdout);
 	}
 }

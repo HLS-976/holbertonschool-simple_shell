@@ -9,7 +9,6 @@ char *check_command(char *array[]);
  * @exit_code: Status of output code
  * Return: The exit code of the executed program, or -1 on error
  */
-
 void execution(char *array[], char **argv, int *exit_code)
 {
 	pid_t pid;
@@ -17,31 +16,32 @@ void execution(char *array[], char **argv, int *exit_code)
 	char *command;
 
 	command = check_command(array);
-	if (!command)
+	if (!command) /* Checks if the command exist */
 	{
 		*exit_code = 127;
 		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], array[0]);
 		return;
 	}
-	pid = fork();/*Crée un processus fils*/
-	if (pid < 0) /*Erreur lors du fork*/
+	pid = fork();/* Creates a processus */
+	if (pid < 0) /* Checks if the fork has failed*/
 	{
 		perror("Erreur lors de la création du processus");
 		free(command);
-		return;/*Retourne une erreur*/
+		return;
 	}
-	else if (pid == 0) /*Code exécuté dans le fils*/
+	else if (pid == 0) /* Performs the execution if the fork has worked*/
 	{
-		if (execve(command, array, NULL) == -1)/*Exécute la commande*/
+		/* Performs the command in child process */
+		if (execve(command, array, NULL) == -1)
 		{
 			perror("ERREUR");
 			free(command);
-			_exit(EXIT_FAILURE);/*Termine le fils proprement*/
+			_exit(EXIT_FAILURE);/* Terminate the process */
 		}
 	}
 	else
-	{ /*Code exécuté dans le parent*/
-		if (wait(&status) == -1)/*Attend la fin du fils*/
+	{
+		if (wait(&status) == -1)/* Waits the ending of the child process */
 		{
 			perror("Erreur lors de l'attente du processus fils");
 			*exit_code = 1;
@@ -57,7 +57,6 @@ void execution(char *array[], char **argv, int *exit_code)
 	}
 
 	free(command);
-	return;/*Retourne 0 si tout s'est bien passé*/
 }
 
 /**
